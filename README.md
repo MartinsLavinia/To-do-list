@@ -1,115 +1,256 @@
-# 📝 Bloco de Notas
+# Bloco de Notas Web
 
-Um sistema simples de gerenciamento de notas desenvolvido com Flask, MySQL, HTML, CSS e Bootstrap.
+## Descrição do Projeto
 
-O objetivo do projeto é permitir que o usuário crie, visualize, edite e exclua notas de forma rápida e intuitiva através de uma interface limpa e responsiva.
+O Bloco de Notas Web é uma aplicação desenvolvida para permitir o gerenciamento de anotações de forma simples e intuitiva. O sistema possibilita criar, visualizar, editar e excluir notas armazenadas em um banco de dados MySQL.
 
----
-
-## 📸 Funcionalidades
-
-- ✅ Criar novas notas
-- ✅ Visualizar todas as notas cadastradas
-- ✅ Editar notas existentes
-- ✅ Excluir notas
-- ✅ Confirmação antes da exclusão
-- ✅ Mensagens de sucesso para operações realizadas
-- ✅ Interface responsiva
-- ✅ Integração com banco de dados MySQL
+O projeto foi desenvolvido utilizando Python com Flask no back-end e HTML, CSS e Bootstrap no front-end.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-### Backend
-- Python
-- Flask
-- MySQL
-- mysql-connector-python
+### Back-end
 
-### Frontend
-- HTML5
-- CSS3
-- Bootstrap 5
-- Bootstrap Icons
+* Python
+* Flask
+* MySQL
+* mysql-connector-python
+* python-dotenv
+
+### Front-end
+
+* HTML5
+* CSS3
+* Bootstrap 5
+
+### DevOps
+
+* Docker
+* Docker Compose
+* Docker Hub
+* AWS EC2
 
 ---
 
-## 📂 Estrutura do Projeto
+## Funcionalidades
+
+* Criar notas
+* Visualizar notas cadastradas
+* Editar notas existentes
+* Excluir notas
+* Persistência de dados em banco MySQL
+* Configuração por variáveis de ambiente (.env)
+* Execução via Docker e Docker Compose
+
+---
+
+## Estrutura de Pastas
 
 ```text
-To-do-list/
+bloco_notas/
+│
+├── app.py
+├── dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .env
+├── script.sql
 │
 ├── static/
 │   └── style.css
 │
 ├── templates/
-│   ├── index.html
-│   ├── nova_nota.html
-│   └── editar_nota.html
 │
-├── app.py
-├── conexao.py
-├── README.md
-│
-└── __pycache__/
+└── README.md
 ```
 
 ---
 
-## 🗄️ Estrutura da Tabela
+## Como Instalar o Projeto
 
-| Campo | Tipo | Descrição |
-|---------|---------|---------|
-| not_id | INT | Identificador da nota |
-| not_titulo | VARCHAR(255) | Título da nota |
-| not_conteudo | TEXT | Conteúdo da nota |
-| not_data_criacao | TIMESTAMP | Data e hora de criação da nota |
+### 1. Clonar o Repositório
 
----
+```bash
+git clone https://github.com/SEU_USUARIO/bloco_notas.git
+```
 
-## 🎨 Interface
+### 2. Entrar na Pasta do Projeto
 
-O sistema possui:
+```bash
+cd bloco_notas
+```
 
-- Tema escuro
-- Cards para exibição das notas
-- Botão flutuante para criação de notas
-- Ícones para edição e exclusão
-- Modal de confirmação para exclusão
-- Mensagens de feedback para o usuário
+### 3. Criar um Ambiente Virtual
 
----
+```bash
+python -m venv venv
+```
 
-## 🔄 Operações CRUD
+### 4. Ativar o Ambiente Virtual
 
-### Create
-Criação de novas notas.
+#### Windows
 
-### Read
-Listagem de todas as notas cadastradas.
+```bash
+venv\Scripts\activate
+```
 
-### Update
-Edição de notas existentes.
+#### Linux
 
-### Delete
-Remoção de notas com confirmação prévia.
+```bash
+source venv/bin/activate
+```
 
----
+### 5. Instalar as Dependências
 
-## 👩‍💻 Autora
-
-Desenvolvido por Lavinia como projeto de estudo para prática de:
-
-- Flask
-- CRUD
-- MySQL
-- HTML e CSS
-- Bootstrap
-- Integração Frontend + Backend
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## 📄 Licença
+## Configuração do Arquivo .env
 
-Este projeto foi desenvolvido para fins educacionais e de aprendizado.
+Crie um arquivo chamado `.env` na raiz do projeto contendo:
+
+```env
+DB_HOST=db
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=sua_senha
+DB_NAME=bloco_notas
+```
+
+---
+
+## Executando o Projeto sem Docker
+
+Execute:
+
+```bash
+python app.py
+```
+
+Acesse:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Executando com Docker
+
+### Construir a Imagem
+
+```bash
+docker build -t bloco_notas .
+```
+
+### Iniciar os Containers
+
+```bash
+docker compose up --build
+```
+
+### Executar em Segundo Plano
+
+```bash
+docker compose up -d
+```
+
+### Parar os Containers
+
+```bash
+docker compose down
+```
+
+---
+
+## Banco de Dados
+
+O banco de dados utilizado é o MySQL.
+
+A estrutura e os dados iniciais encontram-se no arquivo:
+
+```text
+script.sql
+```
+
+Esse arquivo é executado automaticamente durante a inicialização do container MySQL.
+
+---
+
+## Como Acessar o Sistema
+
+Após iniciar os containers:
+
+```text
+http://localhost:5000
+```
+
+Caso esteja hospedado na AWS EC2:
+
+```text
+http://IP_PUBLICO_DA_INSTANCIA:5000
+```
+
+---
+
+## Docker Hub
+
+Imagem publicada no Docker Hub:
+
+```text
+https://hub.docker.com/r/SEU_USUARIO/bloco_notas
+```
+
+(Substituir pelo link real após a publicação.)
+
+---
+
+## AWS EC2
+
+A aplicação foi implantada em uma instância AWS EC2 utilizando Docker e Docker Compose.
+
+A infraestrutura permite a execução da aplicação e do banco de dados em containers independentes, garantindo portabilidade e facilidade de implantação.
+
+---
+
+## Prints das Telas
+
+### Tela Inicial
+
+Inserir print da tela inicial.
+
+### Tela de Criação de Nota
+
+Inserir print da tela de criação de nota.
+
+### Tela de Edição de Nota
+
+Inserir print da tela de edição de nota.
+
+### Aplicação Rodando na AWS EC2
+
+Inserir print da aplicação em execução na instância EC2.
+
+### Containers Ativos
+
+Inserir print do comando:
+
+```bash
+docker ps
+```
+
+### Imagem Publicada no Docker Hub
+
+Inserir print da imagem publicada no Docker Hub.
+
+---
+
+## Autor
+
+Lavinia
+
+Projeto desenvolvido para fins acadêmicos utilizando Flask, MySQL, Docker, Docker Compose, Docker Hub e AWS EC2.
