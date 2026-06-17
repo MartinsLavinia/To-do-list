@@ -1,57 +1,57 @@
-# Bloco de Notas Web
+# 🚀 Sistema Web com Flask + MySQL (Docker + AWS EC2)
 
-## Descrição do Projeto
-
-O Bloco de Notas Web é uma aplicação desenvolvida para permitir o gerenciamento de anotações de forma simples e intuitiva. O sistema possibilita criar, visualizar, editar e excluir notas armazenadas em um banco de dados MySQL.
-
-O projeto foi desenvolvido utilizando Python com Flask no back-end e HTML, CSS e Bootstrap no front-end.
+## 📌 Nome do Projeto
+Sistema Web de Gerenciamento com Flask e MySQL
 
 ---
 
-## Tecnologias Utilizadas
+## 📖 Descrição do Sistema
 
-### Back-end
+Este projeto é uma aplicação web desenvolvida com **Flask (Python)** no backend e **MySQL** como banco de dados relacional.
 
-* Python
-* Flask
-* MySQL
-* mysql-connector-python
-* python-dotenv
+O sistema permite realizar operações básicas de cadastro e gerenciamento de dados, com persistência em banco e comunicação entre serviços via rede Docker.
 
-### Front-end
-
-* HTML5
-* CSS3
-* Bootstrap 5
-
-### DevOps
-
-* Docker
-* Docker Compose
-* Docker Hub
-* AWS EC2
+Toda a aplicação foi containerizada com **Docker** e orquestrada com **Docker Compose**, permitindo execução simples tanto em ambiente local quanto em produção (AWS EC2).
 
 ---
 
-## Funcionalidades
+## 🧠 Tecnologias Utilizadas
 
-* Criar notas
-* Visualizar notas cadastradas
-* Editar notas existentes
-* Excluir notas
-* Persistência de dados em banco MySQL
-* Configuração por variáveis de ambiente (.env)
-* Execução via Docker e Docker Compose
+### 🔙 Backend
+- Python
+- Flask
+- MySQL
+- mysql-connector-python
+- python-dotenv
+
+### 🐳 DevOps / Infraestrutura
+- Docker
+- Docker Compose
+- Docker Hub
+- AWS EC2
+- Git / GitHub
 
 ---
 
-## Estrutura de Pastas
+## ⚙️ Funcionalidades
+
+- Integração entre Flask e MySQL
+- CRUD básico (criação, leitura, atualização e remoção de dados)
+- Persistência de dados em banco relacional
+- Configuração via variáveis de ambiente (.env)
+- Execução via Docker e Docker Compose
+- Deploy em instância AWS EC2
+- Separação de serviços em containers (web + database)
+
+---
+
+## 📁 Estrutura de Pastas
 
 ```text
-bloco_notas/
+projeto/
 │
 ├── app.py
-├── dockerfile
+├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
 ├── .env
@@ -61,196 +61,85 @@ bloco_notas/
 │   └── style.css
 │
 ├── templates/
+│   └── HTMLs do sistema
 │
 └── README.md
 ```
 
 ---
 
-## Como Instalar o Projeto
+## 🛠️ Como Instalar o Projeto
 
-### 1. Clonar o Repositório
-
-```bash
-git clone https://github.com/SEU_USUARIO/bloco_notas.git
+### 1️⃣ Clonar o repositório
 ```
-
-### 2. Entrar na Pasta do Projeto
-
-```bash
-cd bloco_notas
+git clone [https://github.com/MartinsLavinia/To-do-list.git](https://github.com/MartinsLavinia/To-do-list.git)
 ```
-
-### 3. Criar um Ambiente Virtual
-
-```bash
-python -m venv venv
+### 2️⃣ Acessar a pasta do projeto
 ```
-
-### 4. Ativar o Ambiente Virtual
-
-#### Windows
-
-```bash
-venv\Scripts\activate
+cd To-do-list
 ```
-
-#### Linux
-
-```bash
-source venv/bin/activate
+### 3️⃣ Instalar dependências (caso rode local sem Docker)
 ```
-
-### 5. Instalar as Dependências
-
-```bash
 pip install -r requirements.txt
 ```
 
----
+## 🔐 Configuração do arquivo .env
+Crie um arquivo .env na raiz do projeto com as seguintes variáveis:
 
-## Configuração do Arquivo .env
-
-Crie um arquivo chamado `.env` na raiz do projeto contendo:
-
-```env
+```
 DB_HOST=db
 DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=sua_senha
-DB_NAME=bloco_notas
+DB_NAME=seu_banco
 ```
 
 ---
 
-## Executando o Projeto sem Docker
-
-Execute:
-
-```bash
-python app.py
+## 🐳 Como Rodar com Docker
+### 🔨 Build e execução dos containers
 ```
-
-Acesse:
-
-```text
-http://localhost:5000
-```
-
----
-
-## Executando com Docker
-
-### Construir a Imagem
-
-```bash
-docker build -t bloco_notas .
-```
-
-### Iniciar os Containers
-
-```bash
 docker compose up --build
 ```
-
-### Executar em Segundo Plano
-
-```bash
+### ▶️ Rodar em segundo plano
+```
 docker compose up -d
 ```
-
-### Parar os Containers
-
-```bash
+### ⛔ Parar os containers
+```
 docker compose down
 ```
 
 ---
 
-## Banco de Dados
+## 🌐 Como Acessar o Sistema
+💻 Localmente: http://localhost:5000
 
-O banco de dados utilizado é o MySQL.
+☁️ AWS EC2: http://50.19.141.64:5000
 
-A estrutura e os dados iniciais encontram-se no arquivo:
+## 🐳 Docker Hub
+Imagem do projeto disponível em:
+👉 Repositório no Docker Hub
 
-```text
-script.sql
-```
+## ☁️ Deploy na AWS EC2
+A aplicação foi implantada em uma instância AWS EC2, utilizando Docker e Docker Compose.
+Os serviços são separados em containers independentes:
 
-Esse arquivo é executado automaticamente durante a inicialização do container MySQL.
+Flask (aplicação web)
 
----
+MySQL (banco de dados)
 
-## Como Acessar o Sistema
+Isso garante:
 
-Após iniciar os containers:
+Portabilidade
 
-```text
-http://localhost:5000
-```
+Facilidade de deploy
 
-Caso esteja hospedado na AWS EC2:
+Escala básica
 
-```text
-http://IP_PUBLICO_DA_INSTANCIA:5000
-```
-
----
-
-## Docker Hub
-
-Imagem publicada no Docker Hub:
-
-```text
-https://hub.docker.com/r/SEU_USUARIO/bloco_notas
-```
-
-(Substituir pelo link real após a publicação.)
+Isolamento de serviços
 
 ---
 
-## AWS EC2
-
-A aplicação foi implantada em uma instância AWS EC2 utilizando Docker e Docker Compose.
-
-A infraestrutura permite a execução da aplicação e do banco de dados em containers independentes, garantindo portabilidade e facilidade de implantação.
-
----
-
-## Prints das Telas
-
-### Tela Inicial
-
-Inserir print da tela inicial.
-
-### Tela de Criação de Nota
-
-Inserir print da tela de criação de nota.
-
-### Tela de Edição de Nota
-
-Inserir print da tela de edição de nota.
-
-### Aplicação Rodando na AWS EC2
-
-Inserir print da aplicação em execução na instância EC2.
-
-### Containers Ativos
-
-Inserir print do comando:
-
-```bash
-docker ps
-```
-
-### Imagem Publicada no Docker Hub
-
-Inserir print da imagem publicada no Docker Hub.
-
----
-
-## Autor
-
-Lavinia
-
-Projeto desenvolvido para fins acadêmicos utilizando Flask, MySQL, Docker, Docker Compose, Docker Hub e AWS EC2.
+## 👨‍💻 Autor
+Lavinia Martins - Projeto desenvolvido para fins acadêmicos utilizando Flask, MySQL, Docker, Docker Compose, Docker Hub e AWS EC2.
